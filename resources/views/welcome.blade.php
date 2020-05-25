@@ -81,7 +81,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Hello {{ auth()->user()->email ?? ''}}
+                    Hello {{ auth()->user()->name ?? ''}}
+                </div>
+                <div>
+                    {!! "<b>Hello</b>" !!}
+                    {!! "<script>alert('Hello');</script>" !!}
                 </div>
 
                 <div class="links">

@@ -4546,6 +4546,10 @@ readers do not read off random characters that represent icons */
   font-weight: 900; }
 @charset "UTF-8";
 
+a.nav-link.active {
+  background: #ddd;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

@@ -7,7 +7,8 @@
                 <div class="card">
                     <div class="card-header">Create New Hobby</div>
                     <div class="card-body">
-                        <form>
+                        <form action="/hobby" method="post">
+                            @csrf
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" id="name" name="name">

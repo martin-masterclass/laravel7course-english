@@ -21,7 +21,7 @@ class TagSeeder extends Seeder
             'Inspiration' => 'light', // white grey
             'Friends' => 'info', // turquoise
             'Love' => 'danger', // red
-            'Interesse' => 'dark' // black-white
+            'Interest' => 'dark' // black-white
         ];
 
         foreach ($tags as $key => $value) {

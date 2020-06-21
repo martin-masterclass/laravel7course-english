@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="mt-2">
-                    <a class="btn btn-primary btn-sm" href="/hobby"><i class="fas fa-arrow-circle-up"></i> Back to Overview</a>
+                    <a class="btn btn-primary btn-sm" href="{{ URL::previous() }}"><i class="fas fa-arrow-circle-up"></i> Back to Overview</a>
                 </div>
             </div>
         </div>

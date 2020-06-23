@@ -21,7 +21,11 @@
                                         <input class="btn btn-sm btn-outline-danger" type="submit" value="Delete">
                                     </form>
                                     @endauth
-                                    <span>{{ $hobby->created_at->diffForHumans() }}</span>
+                                    <span class="float-right mx-2">{{ $hobby->created_at->diffForHumans() }}</span>
+                                    <br>
+                                    @foreach($hobby->tags as $tag)
+                                        <a href=""><span class="badge badge-{{ $tag->style }}">{{ $tag->name }}</span></a>
+                                    @endforeach
                                 </li>
                             @endforeach
                         </ul>

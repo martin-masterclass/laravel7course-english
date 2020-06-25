@@ -14,7 +14,9 @@
                                     <a title="Show Details" href="/hobby/{{ $hobby->id }}">{{ $hobby->name }}</a>
                                     @auth
                                     <a class="btn btn-sm btn-light ml-2" href="/hobby/{{ $hobby->id }}/edit"><i class="fas fa-edit"></i> Edit Hobby</a>
+                                    @endauth
                                     <span class="mx-2">Posted by: {{ $hobby->user->name }} ({{ $hobby->user->hobbies->count() }} Hobbies)</span>
+                                    @auth
                                     <form class="float-right" style="display: inline" action="/hobby/{{ $hobby->id }}" method="post">
                                         @csrf
                                         @method("DELETE")

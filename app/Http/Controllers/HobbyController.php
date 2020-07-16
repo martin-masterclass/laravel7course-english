@@ -6,6 +6,7 @@ use App\Hobby;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Intervention\Image\Facades\Image;
 
 class HobbyController extends Controller
 {
@@ -126,6 +127,27 @@ class HobbyController extends Controller
             'description' => 'required|min:5',
             'image' => 'mimes:jpeg,jpg,bmp,png,gif'
         ]);
+
+        if ($request->image) {
+            $image = Image::make($request->image);
+            if ( $image->width() > $image->height() ) { // Landscape
+                $image->widen(1200)
+                    ->save(public_path() . "/img/hobbies/" . $hobby->id . "_large.jpg")
+                    ->widen(400)->pixelate(12)
+                    ->save(public_path() . "/img/hobbies/" . $hobby->id . "_pixelated.jpg");
+                $image = Image::make($request->image);
+                $image->widen(60)
+                    ->save(public_path() . "/img/hobbies/" . $hobby->id . "_thumb.jpg");
+            } else { // Portrait
+                $image->heighten(900)
+                    ->save(public_path() . "/img/hobbies/" . $hobby->id . "_large.jpg")
+                    ->heighten(400)->pixelate(12)
+                    ->save(public_path() . "/img/hobbies/" . $hobby->id . "_pixelated.jpg");
+                $image = Image::make($request->image);
+                $image->heighten(60)
+                    ->save(public_path() . "/img/hobbies/" . $hobby->id . "_thumb.jpg");
+            }
+        }
 
         $hobby->update([
             'name' => $request['name'],

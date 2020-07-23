@@ -30,10 +30,12 @@
                     <ul class="list-group">
                         @foreach($hobbies as $hobby)
                             <li class="list-group-item">
-                                <a title="Show Details" href="/hobby/{{ $hobby->id }}">
-                                    <img src="/img/thumb_landscape.jpg" alt="thumb"></a>
-                                    {{ $hobby->name }}
-                                </a>
+                                @if(file_exists('img/hobbies/' . $hobby->id . '_thumb.jpg'))
+                                    <a title="Show Details" href="/hobby/{{ $hobby->id }}">
+                                        <img src="/img/hobbies/{{ $hobby->id }}_thumb.jpg" alt="Hobby Thumb">
+                                    </a>
+                                @endif
+                                &nbsp;<a title="Show Details" href="/hobby/{{ $hobby->id }}">{{ $hobby->name }}</a>
                                 @auth
                                     <a class="btn btn-sm btn-light ml-2" href="/hobby/{{ $hobby->id }}/edit"><i class="fas fa-edit"></i> Edit Hobby</a>
                                 @endauth

@@ -185,4 +185,18 @@ class HobbyController extends Controller
 
     }
 
+    public function deleteImages($hobby_id){
+        if(file_exists(public_path() . "/img/hobbies/" . $hobby_id . "_large.jpg"))
+            unlink(public_path() . "/img/hobbies/" . $hobby_id . "_large.jpg");
+        if(file_exists(public_path() . "/img/hobbies/" . $hobby_id . "_thumb.jpg"))
+            unlink(public_path() . "/img/hobbies/" . $hobby_id . "_thumb.jpg");
+        if(file_exists(public_path() . "/img/hobbies/" . $hobby_id . "_pixelated.jpg"))
+            unlink(public_path() . "/img/hobbies/" . $hobby_id . "_pixelated.jpg");
+
+        return back()->with(
+            [
+                'message_success' => "The Image was deleted."
+            ]
+        );
+    }
 }

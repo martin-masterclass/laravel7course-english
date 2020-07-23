@@ -12,9 +12,12 @@
                         <div class="col-md-9">
                             <h2>Hello {{ auth()->user()->name }}</h2>
                             <h5>Your Motto</h5>
-                            <p><p>{{ auth()->user()->motto ?? '' }}</p></p>
+                            <p>{{ auth()->user()->motto ?? '' }}</p>
                             <h5>Your "About Me" -Text</h5>
-                            <p><p>{{ auth()->user()->about_me ?? '' }}</p></p>
+                            <p>{{ auth()->user()->about_me ?? '' }}</p>
+                            <p>
+                                <a class="btn btn-primary" href="user/{{ auth()->user()->id }}/edit">Edit my profile</a>
+                            </p>
                         </div>
                         <div class="col-md-3">
                             <img class="img-thumbnail" src="/img/300x400.jpg" alt="{{ auth()->user()->name }}">
